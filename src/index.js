@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser';
 import { createTable } from './controller/clienteController.js';
 import clientRoute from './routes/clientRoute.js';
 import { createProductTable } from './controller/produtoController.js';
-import productRouter from './routes/productRoute.js';
+import productRouter from './routes/product.routes.js';
 import { createPedidoTable } from './controller/pedidoController.js';
 import { createProdutoPedidoTable } from './controller/produtoPedidoController.js';
 import produtoPedidoRouter from './routes/pedidoRoute.js';
