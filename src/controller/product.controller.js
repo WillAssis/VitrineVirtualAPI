@@ -67,7 +67,9 @@ export const createProduct = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
   const { id } = req.params;
-  const { name, description, price, actions } = req.body;
+  const { name, description, price } = req.body;
+  const newImages = req.files.map((img) => img.filename);
+  const actions = JSON.parse(req.body.actions);
   const featured = Boolean(req.body.featured);
 
   try {
@@ -76,11 +78,11 @@ export const updateProduct = async (req, res) => {
     const oldImages = oldProduct.images;
     const images = replaceImages(newImages, oldImages, actions);
 
-    await oldDoc.updateOne({ name, description, price, images, featured });
+    await oldProduct.updateOne({ name, description, price, images, featured });
 
     res.status(201).json({ errors: null });
   } catch (error) {
-    images.forEach(deleteImage); // Delete images if fail
+    newImages.forEach(deleteImage); // Delete images if fail
     console.error(error);
     res.status(418);
   }
