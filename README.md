@@ -23,7 +23,7 @@ Desenvolver o back-end de um sistema web de loja virtual para a comercializaçã
 - Abra o prompt de comando:
   - Entre na pasta do projeto via prompt de comando
   - Digite o comando <code style="margin-left:40px">npm install</code> para instalar as dependencias do projeto
-  
+
 ## Rodando o projeto
 
 - Abra a pasta do projeto pelo VSCode:
@@ -42,7 +42,7 @@ Na criação de pedidos, teremos uma API que recebe em seu body:
   - O id do produto.
 
 Não será necessário realizar o envio de todos os dados dos produtos.
-  
+
 ## Status
 
 Em desenvolvimento para conclusão do Projeto Integrador II da Univesp

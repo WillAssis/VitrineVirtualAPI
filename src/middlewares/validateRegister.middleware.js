@@ -1,9 +1,9 @@
 const validateUsername = (username) => {
-  return username.length === 0 ? "Nome de usuário é requerido" : "";
+  return username.length === 0 ? 'Nome de usuário é requerido' : '';
 };
 
 const validatePassword = (password) => {
-  return password.length === 0 ? "Senha é requerida" : "";
+  return password.length === 0 ? 'Senha é requerida' : '';
 };
 
 const validateEmail = (email) => {
@@ -11,12 +11,12 @@ const validateEmail = (email) => {
   const isValid = pattern.test(email);
 
   if (email.length === 0) {
-    return "Email é requerido";
+    return 'Email é requerido';
   } else if (!isValid) {
-    return "Email inválido. exemplo de email válido: sujeito@gmail.com";
+    return 'Email inválido. exemplo de email válido: sujeito@gmail.com';
   }
 
-  return "";
+  return '';
 };
 
 const validateRegister = async (req, res, next) => {
@@ -25,7 +25,7 @@ const validateRegister = async (req, res, next) => {
   const passwordError = validatePassword(password);
   const emailError = validateEmail(email);
   const isValid =
-    usernameError === "" && emailError === "" && passwordError === "";
+    usernameError === '' && emailError === '' && passwordError === '';
 
   if (isValid) {
     next();

@@ -1,8 +1,8 @@
-import User from "../models/user.js";
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+import User from '../models/user.js';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 
-const secret = "8fbgj396378t3h53t893";
+const secret = '8fbgj396378t3h53t893';
 const saltRounds = 10;
 
 const login = async (req, res) => {
@@ -19,7 +19,7 @@ const login = async (req, res) => {
       if (error) throw error;
       res
         .status(201)
-        .cookie("token", token)
+        .cookie('token', token)
         .json({
           user: { username, isAdmin: userDoc.isAdmin },
           errors: null,
@@ -29,8 +29,8 @@ const login = async (req, res) => {
     res.status(418).json({
       user: null,
       errors: {
-        usernameError: "Usuário não existe ou senha incorreta",
-        passwordError: "Usuário não existe ou senha incorreta",
+        usernameError: 'Usuário não existe ou senha incorreta',
+        passwordError: 'Usuário não existe ou senha incorreta',
       },
     });
   }
@@ -44,9 +44,9 @@ const register = async (req, res) => {
     res.status(418).json({
       user: null,
       errors: {
-        usernameError: "Nome de usuário já existe",
-        passwordError: "",
-        emailError: "",
+        usernameError: 'Nome de usuário já existe',
+        passwordError: '',
+        emailError: '',
       },
     });
   } else {
@@ -62,7 +62,7 @@ const register = async (req, res) => {
       if (error) throw error;
       res
         .status(201)
-        .cookie("token", token)
+        .cookie('token', token)
         .json({
           user: { username, isAdmin: userDoc.isAdmin },
           errors: null,
