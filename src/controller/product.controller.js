@@ -94,9 +94,9 @@ export const deleteProduct = async (req, res) => {
   try {
     const doc = await Product.findByIdAndDelete(id);
     doc.images.forEach(deleteImage);
-    res.status(200);
+    res.status(200).json({ success: true });
   } catch (error) {
     console.error(error);
-    res.status(418);
+    res.status(418).json({ success: false });
   }
 };
