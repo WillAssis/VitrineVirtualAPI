@@ -1,3 +1,5 @@
+/** DEPRECATED */
+
 /**
  * Faz as alterações dos dados de uma query para evitar erros quando usados no banco de dados.
  *
@@ -7,7 +9,6 @@
  *          orderBy = 'name' (string)
  *          search = 'produto 123' (string)
  */
-
 const URLQueryHandler = (req, res, next) => {
   try {
     req.query.pageSize = 12; // Valor fixo para número de itens retornados

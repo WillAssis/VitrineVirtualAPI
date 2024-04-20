@@ -1,5 +1,6 @@
-// Faz verificações a alterações na informações enviadas por formulário
+/** DEPRECATED */
 
+// Faz verificações a alterações na informações enviadas por formulário
 const productFormHandler = (req, res, next) => {
   try {
     if (!req.body.name) {
