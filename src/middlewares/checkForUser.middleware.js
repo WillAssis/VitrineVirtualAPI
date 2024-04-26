@@ -8,7 +8,9 @@ const checkForUser = (req, res, next) => {
 
   try {
     const user = jwt.verify(token, secret);
+
     if (user) {
+      req.user = user;
       next();
     } else {
       res.status(401).json({ error: 'Não autorizado' });

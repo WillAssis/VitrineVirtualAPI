@@ -7,8 +7,10 @@ const checkForAdmin = (req, res, next) => {
   const { token } = req.cookies;
 
   try {
-    const { isAdmin } = jwt.verify(token, secret);
-    if (isAdmin) {
+    const user = jwt.verify(token, secret);
+
+    if (user.isAdmin) {
+      req.user = user;
       next();
     } else {
       res.status(401).json({ error: 'Não autorizado' });
