@@ -1,6 +1,39 @@
 import Order from '../models/order.js';
 import Product from '../models/product.js';
 
+// Retorna todos os pedidos para o admin (deve ser verificado antes)
+export const getOrders = async (req, res) => {
+  try {
+    // Retorna também os users no campo 'orderedBy'
+    // TODO: remover as senhas
+    const orders = await Order.find({})
+      .populate('products.product')
+      .populate('orderedBy')
+      .exec();
+
+    res.status(200).json({ orders });
+  } catch (error) {
+    console.error(error);
+    res.status(418).json({ orders: null });
+  }
+};
+
+// Retorna pedidos apenas do usuário
+export const getUserOrders = async (req, res) => {
+  const orderedBy = req.user._id;
+
+  try {
+    const orders = await Order.find({ orderedBy })
+      .populate('products.product')
+      .exec();
+
+    res.status(200).json({ orders });
+  } catch (error) {
+    console.error(error);
+    res.status(418).json({ orders: null });
+  }
+};
+
 export const createOrder = async (req, res) => {
   const { products } = req.body;
   const orderedBy = req.user._id;
