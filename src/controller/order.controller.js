@@ -37,3 +37,15 @@ export const createOrder = async (req, res) => {
     }
   }
 };
+
+export const deleteOrder = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const order = await Order.findByIdAndDelete(id);
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.error(error);
+    res.status(418).json({ success: false });
+  }
+};
