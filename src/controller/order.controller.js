@@ -36,7 +36,6 @@ export const getUserOrders = async (req, res) => {
 
 export const createOrder = async (req, res) => {
   const { products } = req.body;
-  const orderedBy = req.user._id;
   const ids = products.map((product) => product._id);
 
   try {
@@ -52,7 +51,7 @@ export const createOrder = async (req, res) => {
         return { product: _id, quantity };
       });
       const order = await Order.create({
-        orderedBy,
+        orderedBy: req.user._id,
         products: orderedProducts,
       });
 
