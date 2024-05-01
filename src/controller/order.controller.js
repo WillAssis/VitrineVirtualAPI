@@ -70,6 +70,21 @@ export const createOrder = async (req, res) => {
   }
 };
 
+export const updateOrder = async (req, res) => {
+  try {
+    const filter = { _id: req.params.id };
+    const doc = { status: req.body.status.toLowerCase() };
+    const options = { new: true };
+
+    const order = await Order.findOneAndUpdate(filter, doc, options);
+
+    res.status(200).json({ error: null, order });
+  } catch (error) {
+    console.error(error);
+    res.status(418).json({ error: 'Erro ao atualizar pedido', order: null });
+  }
+};
+
 export const deleteOrder = async (req, res) => {
   const { id } = req.params;
 
