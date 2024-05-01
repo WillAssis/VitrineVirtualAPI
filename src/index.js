@@ -9,7 +9,7 @@ import { createProductTable } from './controller/produtoController.js';
 import productRouter from './routes/product.routes.js';
 import { createPedidoTable } from './controller/pedidoController.js';
 import { createProdutoPedidoTable } from './controller/produtoPedidoController.js';
-import produtoPedidoRouter from './routes/pedidoRoute.js';
+import orderRouter from './routes/order.routes.js';
 
 const app = express();
 
@@ -23,7 +23,7 @@ function configureApp() {
     })
   );
   app.use(cookieParser());
-  const routers = [userRouter, clientRoute, productRouter, produtoPedidoRouter];
+  const routers = [userRouter, clientRoute, productRouter, orderRouter];
 
   for (const router of routers) {
     app.use(router);
