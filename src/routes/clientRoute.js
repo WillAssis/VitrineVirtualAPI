@@ -1,3 +1,4 @@
+/** DEPRECATED */
 import express from 'express';
 import {
   deleteClient,

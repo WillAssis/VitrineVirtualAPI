@@ -1,3 +1,4 @@
+/** DEPRECATED */
 import { openDb } from '../configDb.js';
 
 export async function createTable() {

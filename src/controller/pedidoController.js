@@ -1,3 +1,4 @@
+/** DEPRECATED */
 import { openDb } from '../configDb.js';
 import { getClient } from './clienteController.js';
 import { createProdutoPedido } from './produtoPedidoController.js';
